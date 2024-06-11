@@ -19,6 +19,8 @@ jobs:
         check-latest: true
     - name: Run go vet
       run: go vet ./...
+    - name: Checkout code with golangci-lint
+      uses: golangci/golangci-lint-action@v6.0.0
     - name: Build
       run: go build -v ./...
     - name: Test
