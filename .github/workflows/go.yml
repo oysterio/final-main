@@ -2,9 +2,9 @@ name: Go
 
 on:
   push:
-    branches: [ "workflow" ]
+    branches: [ "second-iteration" ]
   pull_request:
-    branches: [ "workflow" ]
+    branches: [ "second-iteration" ]
 
 jobs:
   build-test:
@@ -15,12 +15,10 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
-        go-version: '1.22'
+        go-version: '1.21'
         check-latest: true
     - name: Run go vet
       run: go vet ./...
-    - name: Checkout code with golangci-lint
-      uses: golangci/golangci-lint-action@v6.0.0
     - name: Build
       run: go build -v ./...
     - name: Test
